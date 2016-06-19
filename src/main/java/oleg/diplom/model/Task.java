@@ -13,6 +13,7 @@ public class Task {
     String desc;
     String ownerId;
     String performerId;
+    String acceptId;
 
     public String getId() {
         return id;
@@ -52,5 +53,13 @@ public class Task {
 
     public void setPerformerId(String performerId) {
         this.performerId = performerId;
+    }
+
+    public String getAcceptId() {
+        return acceptId;
+    }
+
+    public void setAcceptId(String acceptId) {
+        this.acceptId = acceptId;
     }
 }

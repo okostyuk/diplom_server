@@ -7,4 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface UserRepositiry extends PagingAndSortingRepository<User, String> {
+    User findByEmailAndPassword(String email, String password);
+    User findByEmail(String email);
 }

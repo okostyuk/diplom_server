@@ -25,9 +25,12 @@ public class MyUserDetailsService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //oleg.diplom.model.User dbUser = userRepositiry.findOne(username);
-        //User user = new User(dbUser.getId(), dbUser.getPassword(), Collections.<GrantedAuthority>emptyList());
-        User user = new User("oleg@example.com", "password", Collections.<GrantedAuthority>emptyList());
-        return user;
+        //User user = new User("oleg@example.com", "password", Collections.<GrantedAuthority>emptyList());
+        User springUser = null;
+        oleg.diplom.model.User user = userRepositiry.findByEmail(username);
+        if (user != null){
+            springUser = new User(username, user.getPassword(), Collections.<GrantedAuthority>emptyList());
+        }
+        return springUser;
     }
 }

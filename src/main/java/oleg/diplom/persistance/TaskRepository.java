@@ -11,4 +11,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource()
 public interface TaskRepository extends PagingAndSortingRepository<Task, String> {
+    Task findByOwnerId(String ownerId);
+    Task findByPerformerId(String performetId);
 }

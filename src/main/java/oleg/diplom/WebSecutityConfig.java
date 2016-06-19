@@ -14,6 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 
@@ -26,7 +27,7 @@ public class WebSecutityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(myUserDetailsService);
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(new BCryptPasswordEncoder(10));
         /*
         auth.inMemoryAuthentication()
                 .withUser("oleg").password("oleg").roles("PERFORMER").and()
@@ -38,12 +39,13 @@ public class WebSecutityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().authorizeRequests().
+                antMatchers("/signin").permitAll().
                 antMatchers("/tasks/**").authenticated().
-                antMatchers(HttpMethod.POST, "/task/*/comment").authenticated().
+/*                antMatchers(HttpMethod.POST, "/task*//*//*comment").authenticated().
                 antMatchers(HttpMethod.POST, "/task").hasRole("CLIENT").
-                antMatchers(HttpMethod.POST, "/task/*/accept").hasRole("PERFORMER").
-                antMatchers(HttpMethod.POST, "/task/*/accept/*/approve").hasRole("CLIENT").
-                antMatchers(HttpMethod.GET, "/task/*/accept").hasRole("CLIENT").
+                antMatchers(HttpMethod.POST, "/task*//*//*accept").hasRole("PERFORMER").
+                antMatchers(HttpMethod.POST, "/task*//*//*accept*//*//*approve").hasRole("CLIENT").
+                antMatchers(HttpMethod.GET, "/task*//*//*accept").hasRole("CLIENT").*/
                 and().
                 csrf().disable();
         //http.csrf().disable();

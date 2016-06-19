@@ -3,6 +3,7 @@ package oleg.diplom.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
 
 /**
  * Created by user1 on 11.06.2016.
@@ -14,19 +15,18 @@ public class User {
     @Id
     @GeneratedValue
     String id;
-    String type;
+    String email;
     String name;
-    String login;
+    String description;
+    //List<String> technologies;
     String password;
-    String currentTask;
 
     public User() {
     }
 
-    public User(String id, String type, String name) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public String getId() {
@@ -37,12 +37,12 @@ public class User {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getEmail() {
+        return email;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -51,14 +51,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
