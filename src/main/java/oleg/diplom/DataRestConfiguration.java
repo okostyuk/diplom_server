@@ -21,5 +21,8 @@ public class DataRestConfiguration extends RepositoryRestConfigurerAdapter {
         config.exposeIdsFor(Task.class);
         config.exposeIdsFor(User.class);
         config.exposeIdsFor(Accept.class);
+        config.setReturnBodyForPutAndPost(true);
+        config.setReturnBodyOnCreate(true);
+        config.setReturnBodyOnUpdate(true);
     }
 }

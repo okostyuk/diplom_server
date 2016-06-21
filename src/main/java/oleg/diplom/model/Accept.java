@@ -12,6 +12,8 @@ public class Accept {
     String id;
     String taskId;
     String performerId;
+    String text;
+
     boolean confirmed;
 
     public String getId() {
@@ -44,5 +46,13 @@ public class Accept {
 
     public void setConfirmed(boolean confirmed) {
         this.confirmed = confirmed;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
