@@ -18,11 +18,11 @@ public class ProjectApplication {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				try {
+/*				try {
 					org.h2.tools.Console.main(args);
 				} catch (SQLException e) {
 					e.printStackTrace();
-				}
+				}*/
 
 				try { H2DatabaseServer.stop(); } catch (SQLException e) {}
 
