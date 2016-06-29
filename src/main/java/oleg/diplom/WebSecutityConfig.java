@@ -32,16 +32,9 @@ public class WebSecutityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests().
-                antMatchers("/signin").permitAll().
-                antMatchers("/tasks/**").authenticated().
-/*                antMatchers(HttpMethod.POST, "/task*//*//*comment").authenticated().
-                antMatchers(HttpMethod.POST, "/task").hasRole("CLIENT").
-                antMatchers(HttpMethod.POST, "/task*//*//*accept").hasRole("PERFORMER").
-                antMatchers(HttpMethod.POST, "/task*//*//*accept*//*//*approve").hasRole("CLIENT").
-                antMatchers(HttpMethod.GET, "/task*//*//*accept").hasRole("CLIENT").*/
-                and().
-                csrf().disable();
-        //http.csrf().disable();
+        http.antMatcher("/*").anonymous();
+                //httpBasic().and().authorizeRequests().
+                //antMatchers("/signin").permitAll().
+                //antMatchers("/tasks/**").authenticated();
     }
 }

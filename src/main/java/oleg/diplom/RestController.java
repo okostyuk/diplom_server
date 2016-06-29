@@ -35,24 +35,6 @@ public class RestController {
     UserRepositiry userRepositiry;
 
 
-    @RequestMapping("/admin")
-    public String admin(){
-        return "ADMIN";
-    }
-
-    @RequestMapping("/me")
-    public User login(HttpServletRequest request){
-/*
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Object o1 = auth.getPrincipal();
-        Object o2 = auth.getCredentials();
-        Object o3 = auth.getDetails();
-        Object o4 = auth.getName();
-        User user = new User("testid", "testtype", "testname");
-*/
-        return null;
-    }
-
 
     @RequestMapping(value = "/signin", params = {"email", "password"})
     public User signIn(

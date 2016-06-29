@@ -19,7 +19,7 @@ public class User {
     String firstName;
     String lastName;
     String description;
-    //List<String> technologies;
+    String technologies;
     String password;
     String avatar;
 

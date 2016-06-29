@@ -14,7 +14,6 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 @Configuration
 public class DataRestConfiguration extends RepositoryRestConfigurerAdapter {
 
-
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         super.configureRepositoryRestConfiguration(config);

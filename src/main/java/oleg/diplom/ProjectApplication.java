@@ -35,6 +35,6 @@ public class ProjectApplication {
 		}).start();
 
 		ApplicationContext ctx = SpringApplication.run(ProjectApplication.class, args);
-
+		
 	}
 }
